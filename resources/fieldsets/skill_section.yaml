@@ -1,0 +1,93 @@
+title: 'Skill section'
+fields:
+  -
+    handle: skill_heading
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Heading
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: skill_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: skill_description
+    field:
+      restrict: false
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      heading_anchors: false
+      smartypants: false
+      table_of_contents: false
+      antlers: false
+      type: markdown
+      display: Description
+      icon: markdown
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: skill_grid
+    field:
+      fields:
+        -
+          handle: skill_grid_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Name
+            icon: text
+            width: 50
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: skill_grid_number
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Number
+            icon: text
+            width: 50
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: 'Skill Grid'
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

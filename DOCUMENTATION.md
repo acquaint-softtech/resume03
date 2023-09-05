@@ -1,4 +1,4 @@
-## resume03
+## Resume03
 
 Resume03 is a Statamic starter kit. A fully customizable readymade template for a resume website. 
 
@@ -34,4 +34,36 @@ Resume03 is a Statamic starter kit shows different types of details according to
 - Easy contact us Detail form for effortless inquiries  
 - Portfolio details with all client details 
 
-Read the docs on the [Documentation](DOCUMENTATION.md)
+## Quick Start
+
+### 1. Create a new site
+
+You can create a new site using the [Statamic CLI Tool](https://github.com/statamic/cli):
+
+```
+statamic new your-site acquaint-softtech/resume03
+```
+
+Or you can install manually into a fresh [Statamic installation](https://statamic.dev/installation) by running:
+
+```
+php please starter-kit:install acquaint-softtech/resume03 --clear-site
+```
+
+### 2. Make a new user
+
+The above installers should prompt you to make a user, but you can also run `php please make:user`. You'll want it to be a `super` so you have access to everything.
+
+### 3. Recompile the CSS
+
+The [TailwindCSS](https://tailwindcss.com/) included in this kit is compiled and purged to reduce filesize on any unused classes and selectors. If you want to modify anything, just recompile it.
+
+```
+npm i && npm run dev
+```
+
+To compile for production again:
+
+```
+npm run build
+```

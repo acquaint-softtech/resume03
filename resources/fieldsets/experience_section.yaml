@@ -1,0 +1,207 @@
+title: 'Experience Section'
+fields:
+  -
+    handle: exp_heading
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Heading
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: exp_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: exp_description
+    field:
+      restrict: false
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      heading_anchors: false
+      smartypants: false
+      table_of_contents: false
+      antlers: false
+      type: markdown
+      display: Description
+      icon: markdown
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: skills_grid
+    field:
+      fields:
+        -
+          handle: skill_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Name
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: skill_technology
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Technology
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: skill_description
+          field:
+            restrict: false
+            buttons:
+              - bold
+              - italic
+              - unorderedlist
+              - orderedlist
+              - quote
+              - link
+              - image
+              - table
+            automatic_line_breaks: true
+            automatic_links: false
+            escape_markup: false
+            heading_anchors: false
+            smartypants: false
+            table_of_contents: false
+            antlers: false
+            type: markdown
+            display: Description
+            icon: markdown
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: skill_year
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Year
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: 'Skills Grid'
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: education_grid
+    field:
+      fields:
+        -
+          handle: education_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Education name'
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: univercity_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Univercity name'
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: education_description
+          field:
+            restrict: false
+            buttons:
+              - bold
+              - italic
+              - unorderedlist
+              - orderedlist
+              - quote
+              - link
+              - image
+              - table
+            automatic_line_breaks: true
+            automatic_links: false
+            escape_markup: false
+            heading_anchors: false
+            smartypants: false
+            table_of_contents: false
+            antlers: false
+            type: markdown
+            display: Description
+            icon: markdown
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: education_year
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Year
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: 'Education Grid'
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

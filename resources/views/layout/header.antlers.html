@@ -1,0 +1,99 @@
+<header class="fixed w-full left-0 top-0 clearHeader z-[99999]">
+    <div class="header__sticky py-5">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <div class="logo">
+                    <a href="/">
+                            <img src="{{ glide:brand_logo:light_logo  }}" alt="{{ brand_logo:light_logo:alt }}" class="hidden dark:block">
+                            <img src="{{ glide:brand_logo:dark_logo  }}" alt="{{ brand_logo:dark_logo:alt }}" class="dark:hidden">
+                    </a>
+                </div>
+                <div class="lg:flex items-center hidden menu">
+                    <nav>
+                        <ul class="flex items-center">
+                            {{nav:main}}
+                            <li>
+                                <a href="#{{title | slugify}}"
+                                    class="{{if index == 0}} current {{/if}} text-[17px] xl:text-[19px] text-primary dark:text-white font-medium hover:text-accent1 dark:hover:text-accent1 transition duration-300 ml-[26px] xl:ml-[44px] rtl:mr-[26px] rtl:xl:mr-[44px] relative after:absolute after:content-[''] after:h-[2px] after:w-0 after:bottom-[3px] ltr:after:left-0 rtl:after:right-0 after:transition-[.5s] after:bg-accent1 py-[8px] hover:after:w-full">{{title}}</a>
+                            </li>
+                            {{/nav:main}}
+                        </ul>
+                    </nav>
+                    <a href="{{brand_logo:resume_pdf}}" download>
+                        <button
+                            class="flex bg-accent1 lg:px-4 px-3 xl:py-[12px] py-2.5 rounded-[2rem] text-base xl:text-lg font-medium text-white items-center ltr:ml-[32px] rtl:mr-[32px] transition duration-300 relative after:absolute :after:content-[''] after:bg-primary after:h-full after:w-full after:bottom-0 after:left-0 after:rounded-[2rem] after:trasition after:duration-300 after:opacity-0 hover:after:opacity-[1] ml-[32px]">
+                            <span
+                                class="icon bg-[#EFEBEB] text-accent1 w-[34px] h-[34px] rounded-full flex items-center justify-center header__sticky:mr-3.9 mr-[10px] rtl:xl:ml-3.9 rtl:ml-[10px] relative z-8 flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-download">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </span>
+                            <span
+                                class="ltr:xl:pr-[5px] ltr:lg:pr-[5px] rtl:xl:pl-[5px] rtl:lg:pl-[5px] relative z-8 flex-shrink-0">{{brand_logo:button_text}}</span>
+                        </button>
+                    </a>
+                </div>
+                <div class="lg:hidden">
+                    <button class="offcanvas__header--menu__open--btn text-primary dark:text-white " data-offcanvas>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-menu">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{partial:layout/mobile}}
+    </div>
+</header>
+
+{{ pushOnce:scripts }}
+<script>
+    $(document).ready(function () {
+        $(document).on("scroll", onScroll);
+        $('a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+            $(document).off("scroll");
+            $('a').each(function () {
+                $(this).removeClass('current');
+            })
+            $(this).addClass('current');
+            var target = this.hash,
+                menu = target;
+            $target = $(target);
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top + 2
+            }, 500, 'swing', function () {
+                $(document).on("scroll", onScroll);
+                if (window.history.pushState) {
+                    window.history.pushState('', '/', window.location.pathname)
+                } else {
+                    window.location.hash = '';
+                }
+            });
+        });
+    });
+    function onScroll(event) {
+        var scrollPos = $(document).scrollTop();
+        $('.menu a').each(function () {
+            if(($(this).attr("href")).indexOf('#') != -1) {
+                var refElement = $($(this).attr("href"));
+                if (refElement != '' && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    $('.menu ul li a').removeClass("current");
+                    $(this).addClass("current");
+                }
+                else {
+                    $(this).removeClass("current");
+                }
+            }
+        });
+    }
+</script>
+{{ endPushOnce }}

@@ -1,0 +1,143 @@
+title: 'About Section'
+fields:
+  -
+    handle: about_slug
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Slug
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_heading
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Heading
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_subtitle
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Subtitle
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_details
+    field:
+      fields:
+        -
+          handle: about_grid_info
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Info
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: Details
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_button_text
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Button Text'
+      icon: text
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_button_link
+    field:
+      type: link
+      display: 'Button Link'
+      icon: link
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      width: 50
+  -
+    handle: about_image
+    field:
+      max_files: 1
+      mode: list
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: Image
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+      validate:
+        - image
+  -
+    handle: about_image_heading
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Image Heading'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: about_image_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Image Title'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

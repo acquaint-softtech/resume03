@@ -1,0 +1,15 @@
+{{ if page == current_page }}
+	<span class="bg-black text-white dark:bg-gradient-to-r from-brand-orange to-brand-red w-10 h-10 md:w-8 md:h-8 inline-flex justify-center items-center mx-1 rounded-md shadow-standard hover:shadow-standard-gray {{ view:activeclass }} {{ view:pageNumberClass }}">{{ page }}</span>
+{{ else }}
+	{{ if page==1 }}
+		<a href="{{ current_url }}"
+			class=" w-10 h-10 md:w-8 md:h-8 inline-flex justify-center items-center bg-light-gray mx-1 rounded-md shadow-standard hover:bg-black hover:text-white hover:shadow-standard-gray {{ view:pageNumberClass }}">
+				{{ page }}
+		</a>
+	{{ else }}
+		<a href="{{ url }}"
+			class=" w-10 h-10 md:w-8 md:h-8 inline-flex justify-center items-center bg-light-gray mx-1 rounded-md shadow-standard hover:bg-black hover:text-white hover:shadow-standard-gray {{ view:pageNumberClass }}">
+			{{ page }}
+		</a>		
+	{{ /if }}
+{{ /if }}

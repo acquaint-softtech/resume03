@@ -1,0 +1,270 @@
+title: SEO
+fields:
+  -
+    handle: section_basic
+    field:
+      type: section
+      display: Basic
+      icon: section
+      instructions: 'Basic SEO settings'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_title
+    field:
+      input_type: text
+      character_limit: 70
+      antlers: false
+      type: text
+      display: 'Page title'
+      icon: text
+      instructions: 'This entries title, defaults to title. Max 70 characters including the site name.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_description
+    field:
+      character_limit: '160'
+      antlers: false
+      type: textarea
+      display: 'Meta description'
+      icon: textarea
+      instructions: 'This entries meta description. Max 160 characters.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: section_advanced
+    field:
+      type: section
+      display: Advanced
+      icon: section
+      instructions: 'Advanced SEO settings'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_noindex
+    field:
+      default: false
+      type: toggle
+      display: No-index
+      icon: toggle
+      instructions: 'Instruct crawlers not to index this entry, also excludes it from the sitemap.xml.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_nofollow
+    field:
+      default: false
+      type: toggle
+      display: No-follow
+      icon: toggle
+      instructions: 'Instruct crawlers not to follow links on this page.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_canonical_type
+    field:
+      options:
+        entry: 'Current entry'
+        current: 'Current domain'
+        external: 'External domain'
+      default: entry
+      type: button_group
+      display: 'Canonical URL'
+      icon: button_group
+      instructions: 'Where should the canonical URL for this entry point to.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_canonical_current
+    field:
+      max_items: 1
+      mode: default
+      create: true
+      type: entries
+      display: 'Canonical URL'
+      icon: entries
+      instructions: 'If this is an entry with duplicate content. Enter the original URL for this content.'
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: seo_canonical_external
+    field:
+      input_type: url
+      antlers: false
+      type: text
+      display: 'Canonical URL'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: section_og
+    field:
+      type: section
+      display: 'Open Graph'
+      icon: section
+      instructions: 'Open Graph meta tags for social sharing'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: og_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Social title'
+      icon: text
+      instructions: 'This entries OG title, defaults to custom SEO title and title.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: og_description
+    field:
+      antlers: false
+      type: textarea
+      display: 'Social description'
+      icon: textarea
+      instructions: 'This entries OG description, defaults to meta description.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: og_image
+    field:
+      max_files: 1
+      mode: grid
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Social image'
+      icon: assets
+      instructions: 'This entries OG image. Defaults to global site OG image. The recommended size is 1200px x 630px. The image will be focal cropped to this dimension.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: twitter_image
+    field:
+      max_files: 1
+      mode: grid
+      container: assets
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Twitter image'
+      icon: assets
+      instructions: 'This entries Twitter image. Defaults to global site Twitter image. Images should have an aspect ratio of 2:1 with minimum dimensions of 300x157. This image will be focal cropped to this dimension.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: section_sitemap
+    field:
+      type: section
+      display: Sitemap
+      icon: section
+      instructions: 'Sitemap configuration'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: sitemap_change_frequency
+    field:
+      options:
+        always: Always
+        hourly: Hourly
+        daily: Daily
+        weekly: Weekly
+        monthly: Monthly
+        yearly: Yearly
+        never: Never
+      taggable: false
+      push_tags: false
+      multiple: false
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      default: weekly
+      type: select
+      display: 'Change frequency'
+      icon: select
+      instructions: 'How often to instruct search engines to crawl.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: sitemap_priority
+    field:
+      input_type: text
+      default: '0.5'
+      antlers: false
+      type: text
+      display: Priority
+      icon: text
+      instructions: 'Valid values range from 0.0 to 1.0. This value does not affect how your pages are compared to pages on other sites, it only lets the search engines know which pages you deem most important for the crawlers.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: section_schema
+    field:
+      type: section
+      display: 'JSON-ld Schema'
+      icon: section
+      instructions: 'Custom JSON-ld schema objects'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: schema_jsonld
+    field:
+      antlers: false
+      type: textarea
+      display: 'JSON-ld schema'
+      icon: textarea
+      instructions: 'Custom JSON-ld objects. Will be wrapped in the appropriate script tag.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

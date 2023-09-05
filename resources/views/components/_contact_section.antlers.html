@@ -1,0 +1,90 @@
+<section
+  class="py-20 lg:py-[100px] mb-[270px] bg-cover bg-no-repeat bg-center bg-contactLight bg-[#ECF1F6] dark:bg-contactDark dark:bg-dark_primary_bg"
+  id="{{contact_slug | slugify}}">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div>
+        <div class="mb-13 md:text-center lg:text-left">
+          <span class="text-accent1 text-xl lg:text-2xl font-medium mb-2.5 lg:mb-1.5">{{con_heading}}</span>
+          <h2
+            class="text:[28px] lg:text-[48px] font-bold font-heebo leading-[36px] lg:leading-[58px] text-[#000248] dark:text-white">
+            {{con_title}}
+          </h2>
+          {{ partial:typography/prose as="article" class="text-[#636363] dark:text-slate-200 text-17 leading-[28px]
+          lg:max-w-[472px] w-full" }}
+          {{ con_description }}
+          {{ /partial:typography/prose }}
+        </div>
+        {{ partial:forms/contactform }}
+      </div>
+      <div
+        class="ltr:only-md:pl-7.5 ltr:lg:pl-[50px] rtl:only-md:pr-7.5 rtl:lg:pr-[50px] mt-7.5 lg:mt-[150px] flex lg:block gap-8 lg:gap-0 flex-wrap">
+        {{contact_details}}
+        {{if index == 0}}
+        <div class="flex items-center ">
+          <div>
+            <span
+              class="w-[50px] h-[50px] lg:w-17 lg:h-17 bg-accent1 text-white flex items-center rounded-full justify-center">
+              {{ glide src="{{ con_grid_image }}"  }}
+                <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ con_grid_image:alt }}" >
+              {{ /glide }}
+              
+            </span>
+          </div>
+          <div class="ltr:pl-6 rtl:pr-6">
+            <h3 class="xl:text-[28px] md:text-[22px] font-heebo font-bold text-primary dark:text-white">{{con_grid_name}}</h3>
+            <span class="text-primary dark:text-slate-200 lg:text-lg mt-5"><a
+                href="tel:{{con_grid_description}}">++{{con_grid_description}} </a><br> <a
+                href="tel:{{con_grid_description_1}}">++{{con_grid_description_1}}</a></span>
+          </div>
+        </div>
+        {{elseif index == 1}}
+        <div class="flex items-center lg:mt-7">
+          <div>
+            <span
+              class="w-[50px] h-[50px] lg:w-17 lg:h-17 bg-accent1 text-white flex items-center rounded-full justify-center">
+              {{ glide src="{{ con_grid_image }}"  }}
+                <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ con_grid_image:alt }}" >
+              {{ /glide }}
+            </span>
+          </div>
+          <div class="ltr:pl-6 rtl:pr-6">
+            <h3 class="xl:text-[28px] md:text-[22px] font-heebo font-bold text-primary dark:text-white">{{con_grid_name}}
+            </h3>
+            <span class="text-primary  dark:text-slate-200 lg:text-lg mt-5"><a
+                href="mailto:{{con_grid_description}}">{{con_grid_description}}</a><br>
+              <a href="mailto:{{con_grid_description_1}}">{{con_grid_description_1}}</a>
+            </span>
+          </div>
+        </div>
+        {{elseif index == 2}}
+        <div class="flex items-center lg:mt-7">
+          <div>
+            <span
+              class="w-[50px] h-[50px] lg:w-17 lg:h-17 bg-accent1 text-white flex items-center rounded-full justify-center">
+              {{ glide src="{{ con_grid_image }}"  }}
+                <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ con_grid_image:alt }}" >
+              {{ /glide }}
+            </span>
+          </div>
+          <div class="ltr:pl-6 rtl:pr-6">
+            <h3 class="xl:text-[28px] md:text-[22px] font-heebo font-bold text-primary dark:text-white">{{con_grid_name}}
+            </h3>
+            <span class="text-primary  dark:text-slate-200 lg:text-lg mt-5">{{con_grid_description}}
+              <br>
+              {{con_grid_description_1}}
+            </span>
+          </div>
+        </div>
+        {{/if }}
+        {{/contact_details}}
+      </div>
+    </div>
+    <div class="mb-[-275px] pt-17 lg:pt-[100px]">
+      <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0"
+          marginwidth="0"
+          src="https://maps.google.com/maps?width=100%25&amp;height=440&amp;hl=en&amp;q={{map_address | urlencode}}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+            href="https://www.maps.ie/distance-area-calculator.html">distance maps</a></iframe></div>
+    </div>
+  </div>
+</section>

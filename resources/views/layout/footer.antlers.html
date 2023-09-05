@@ -1,0 +1,31 @@
+<footer
+    class="py-12.5 bg-cover bg-no-repeat bg-center bg-footerLight bg-[#EFF3F7] dark:bg-footerDark dark:bg-dark_primary_bg dark:border-t dark:border-[#181a1d]">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 only-md:grid-cols-2 lg:grid-cols-2">
+            <div class="flex justify-center md:justify-start">
+                <p class="flex items-center flex-wrap sm:justify-center dark:text-slate-200">{{footer_section:heading}}
+                    <span class="px-0.9 text-paragraph dark:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="currentColor" stroke="text-paragraph" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-heart">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                            </path>
+                        </svg>
+                    </span> {{footer_section:subtitle}} <span class=" px-0.9"><a class="text-accent1 hover:font-bold"
+                            href="{{footer_section:subtitle_2}}">{{footer_section:subtitle_1}}</a></span>© {{now |
+                    format('Y')}}</p>
+            </div>
+            <div class="flex items-center gap-8 justify-center sm:mt-3.9 md:mt-0 md:justify-end">
+                {{footer_section:tearms_grid}}
+                <a href="{{tearms_grid_link}}"
+                    class="text-paragraph dark:text-slate-200 hover:text-accent1 font-medium md:text-xl sm:text-base">{{tearms_gird_title}}</a>
+                {{/footer_section:tearms_grid}}
+            </div>
+        </div>
+    </div>
+</footer>
+<button id="scroll__top" class="fixed bottom-12 ltr:right-5 rtl:left-5 z-50 bg-accent1 text-white shadow-[0_2px_22px_rgba(0,0,0,0.16)] cursor-pointer translate-y-12 opacity-0 invisible transition-all duration-300 leading-[1] w-11 h-11 rounded-full border-none flex items-center justify-center hover:bg-primary dark:hover:bg-[#181a1d]">
+    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon w-6 leading-[1]" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round"  stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg>
+</button>  
+    

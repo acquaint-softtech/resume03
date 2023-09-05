@@ -1,0 +1,43 @@
+<section
+  class="bg-cover bg-no-repeat bg-center bg-aboutMe bg-[#ECF1F6] dark:bg-dark_primary_bg dark:bg-none py-20 lg:py-[100px] dark:border-t dark:border-b dark:border-[#181a1d]"
+  id="{{about_slug | slugify}}">
+  <div class="container mx-auto">
+    <div class="flex justify-between flex-wrap flex-col-reverse md:flex-nowrap md:flex-row">
+      <div class="w-full lg:max-w-[550px]">
+        <div>
+          <span
+            class="text-accent1 text-xl lg:text-2xl font-medium mb-2.5 lg:mb-1.5">{{about_heading}}</span>
+          <h2
+            class="text-2xl only-md:text-[32px] lg:text-[48px] font-bold font-heebo leading-[36px] lg:leading-[58px] text-[#000248] dark:text-white ltr:lg:pr-[50px] rtl:lg:pl-[50px]">
+            {{about_title}}</h2>
+        </div>
+        <div class="mt-7.5">
+          <h3 class="text-accent1 text-xl lg:text-2xl font-medium ">{{about_subtitle}}:</h3>
+          <ul class="flex justify-between flex-wrap mt-4.5">
+            {{about_details}}
+            <li
+              class="text-paragraph dark:text-slate-200 w-full xs:max-w-[100%]  max-w-[50%] ltr:pl-[18px] rtl:pr-[18px] my-2.5 relative before:absolute before:content-[''] before:bg-accent1 before:w-[6px] before:h-[6px] ltr:before:left-0 rtl:before:right-0 before:top-[8px] before:rounded-full after:absolute after::content-[''] after:w-4 after:h-4 after:border-2 after:border-accent1 ltr:after:left-[-5px] rtl:after:right-[-5px] after:top-[3px] after:border-solid after:rounded-full text-17">
+              {{about_grid_info}}
+            </li>
+            {{/about_details}}
+          </ul>
+          <a href="{{about_button_link}}"
+            class="btn outline-btn text-accent1 mt-8.5 inline-block">{{about_button_text}}</a>
+        </div>
+      </div>
+      <div class="mb-[50px]">
+        <div class="relative">
+          {{ partial:components/picture_size :image="about_image" class="relative z-10 sm:mx-auto" lazy="true" sizes="40vw" }}
+          <span
+            class="absolute w-[100px] h-[100px] only-md:w-150 only-md:h-[150px] lg:w-51 lg:h-51 xl:w-63 xl:h-63 border-8 lg:border-[13px] border-accent1 rounded-full xs:bottom-[-25%] bottom-[-12%] md:bottom-[-18%] ltr:left-[3%] ltr:md:left-[-18%] rtl:right-[3%] rtl:md:right-[-18%] animateUpDown"></span>
+        </div>
+        <div class="text-center mt-7.5">
+          <h4 class="font-heebo text-[50px] lg:text-[80px] font-bold leading-[1] text-white title-stroke">
+            {{about_image_heading}}</h4>
+          <span
+            class="font-bold sm:text-xl only-md:text-2xl lg:text-[30px] font-heebo text-primary dark:text-white">{{about_image_title}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+<section class="lg:pb-[100px] pb-20">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center gap-[20px] lg:gap-8 mb-13 flex-wrap lg:flex-nowrap text-center lg:text-left">
+      <div class="max-w-full lg:max-w-[575px]  w-full">
+        <span class="text-accent1 text-xl lg:text-2xl font-medium mb-2.5 lg:mb-1.5">{{skill_heading}}</span>
+        <h2
+          class="text:[28px] lg:text-[48px] font-bold font-heebo leading-[36px] lg:leading-[58px] text-[#000248] dark:text-white">
+          {{skill_title}}
+        </h2>
+      </div>
+      <div class="md:grow lg:grow-0">
+        {{ partial:typography/prose as="article" class="text-[#636363] dark:text-slate-200 text-17 leading-[28px]
+        lg:max-w-[472px] w-full" }}
+        {{ skill_description }}
+        {{ /partial:typography/prose }}
+      </div>
+    </div>
+    <div class="flex justify-between items-center gap-[20px] lg:gap-8 flex-wrap lg:flex-nowrap md:text-center">
+      {{skill_grid}}
+      {{ if index == 0 || index == 3}}
+      <div class="max-w-full lg:max-w-[472px]  w-full only-md:px-7 sm:px-5 md:px-0">
+        {{/if}}
+        <div class="relative mb-7">
+          <div class="flex justify-between mb-1">
+            <span class="text-lg font-medium text-primary dark:text-white">{{skill_grid_name}}</span>
+            <span
+              class="text-xs font-medium text-white bg-accent1 dark:text-white absolute py-1.5 px-1.5 bottom-6 rounded-sm before:absolute before:content-[''] before:bg-accent1 before:w-5 before:h-5 before:clip-polygon before:top-4 ltr:before:left-2 rtl:before:right-2 before:-z-10 ltr:left-[calc(60%_-_20px)] rtl:right-[calc(60%_-_20px)]">{{skill_grid_number}}%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-[10px] dark:bg-gray-700 flex items-center">
+            <div class="bg-accent1 h-[6px] rounded-full mx-0.5" style="width: {{skill_grid_number}}%"></div>
+          </div>
+        </div>
+        {{ if index == 2}}
+      </div>
+      {{/if}}
+      {{/skill_grid}}
+    </div>
+  </div>
+</section>

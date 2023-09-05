@@ -1,0 +1,15 @@
+title: 'Footer Section'
+data:
+  heading: 'Developed with'
+  subtitle: by
+  subtitle_1: Benos
+  subtitle_2: '#'
+  tearms_grid:
+    -
+      id: lkjjddow
+      tearms_gird_title: 'Terms & Condition'
+      tearms_grid_link: '#'
+    -
+      id: lkjjdmnm
+      tearms_gird_title: 'Privacy Policy'
+      tearms_grid_link: '#'

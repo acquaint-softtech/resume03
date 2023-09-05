@@ -1,0 +1,49 @@
+{{ if image }}
+    <picture>
+        {{ asset :url="image" }}
+            {{ if extension == 'svg' || extension == 'gif' }}
+                <img class="{{ class }}" src="{{ url }}" alt="{{ alt }}" />
+            {{ else }}
+                <source
+                    srcset="
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 320w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 480w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 768w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1280w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1440w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1680w"
+                    width="{{ width }}"
+                    sizes="{{ sizes }}"
+                    type="image/webp"
+                >
+                <source
+                    srcset="
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 320w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 480w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 768w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1280w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1440w,
+                        {{ glide:image w='{{width}}'  h='{{ height }}' }} 1680w"
+                    sizes="{{ sizes }}"
+                    width="{{ width }}"
+                    type="{{ image.mime_type }}"
+                >
+                <img
+                    {{ if cover }}
+                        class="object-cover w-full h-full {{ class }}"
+                        style="object-position: {{ focus | background_position }}"
+                    {{ else }}
+                        class="{{ class }}"
+                    {{ /if }}
+                    src="{{ glide:image preset='lg' }}"
+                    alt="{{ alt ensure_right='' }}"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                    {{ if lazy }}
+                        loading="lazy"
+                    {{ /if }}
+                >
+            {{ /if }}
+        {{ /asset }}
+    </picture>
+{{ /if }}

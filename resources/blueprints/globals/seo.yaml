@@ -1,0 +1,598 @@
+tabs:
+  main:
+    display: 'Page titles'
+    sections:
+      -
+        fields:
+          -
+            handle: section_title
+            field:
+              type: section
+              display: Title
+              icon: section
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: title_separator
+            field:
+              options:
+                '|': '|'
+                '-': '-'
+                /: /
+                '::': '::'
+                '>': '>'
+                '~': '~'
+              taggable: false
+              push_tags: false
+              multiple: false
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              type: select
+              display: Separator
+              icon: select
+              instructions: 'Select the character to separate the page title and site title.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: site_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Website title'
+              icon: text
+              instructions: "The title for the website. <br>Defaults to Laravel's App Name."
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+  json-id:
+    display: JSON-Id
+    sections:
+      -
+        fields:
+          -
+            handle: section_schema
+            field:
+              type: section
+              display: 'Knowledge graph data'
+              icon: section
+              instructions: 'JSON-LD Schema'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: json_ld_type
+            field:
+              options:
+                none: None
+                organization: Organization
+                person: Person
+                custom: Custom
+              default: none
+              type: button_group
+              display: Type
+              icon: button_group
+              instructions: 'The type of data to be added on each page.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: organization_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Organization name'
+              icon: text
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                json_ld_type: 'equals organization'
+          -
+            handle: organization_logo
+            field:
+              max_files: 1
+              mode: list
+              container: assets
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Organization logo'
+              icon: assets
+              instructions: 'Minimum 112px x 112px, will be focal cropped to a square.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                json_ld_type: 'equals organization'
+          -
+            handle: person_name
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Person name'
+              icon: text
+              width: 66
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                json_ld_type: 'equals person'
+          -
+            handle: json-ld
+            field:
+              antlers: false
+              type: textarea
+              display: JSON-LD
+              icon: textarea
+              instructions: 'Add custom JSON-LD to be included on each page. This can include stuff like business hours and contact data.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                json_ld_type: 'equals custom'
+  social_sharing:
+    display: 'Social Sharing'
+    sections:
+      -
+        fields:
+          -
+            handle: section_social_images
+            field:
+              type: section
+              display: Social
+              icon: section
+              instructions: 'Automatically generate Social Images'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: use_social_images_generation
+            field:
+              default: false
+              type: toggle
+              display: 'Use Social Images generation'
+              icon: toggle
+              instructions: 'Enable auto Social Image generation. **Important**: you need to have Puppeteer and Browsershot installed.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: social_images_collections
+            field:
+              mode: select
+              type: collections
+              display: 'Social Images generation'
+              icon: collections
+              instructions: 'Use auto Social Image generation for the following collections.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                use_social_images_generation: 'equals true'
+          -
+            handle: section_og
+            field:
+              type: section
+              display: Defaults
+              icon: section
+              instructions: 'Default settings for Social Sharing.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: og_image
+            field:
+              max_files: 1
+              mode: list
+              container: social_images
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Social image'
+              icon: assets
+              instructions: 'The default OG image. Can be overridden per entry. The recommended size is 1200px x 630px. This image will be focal cropped to this dimension.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: twitter_image
+            field:
+              max_files: 1
+              mode: list
+              container: social_images
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Twitter image'
+              icon: assets
+              instructions: 'The default Twitter image. Can be overridden per entry. Images should have an aspect ratio of 2:1 with minimum dimensions of 300x157. This image will be focal cropped to this dimension.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: twitter_handle
+            field:
+              input_type: text
+              prepend: '@'
+              antlers: false
+              type: text
+              display: 'Twitter handle'
+              icon: text
+              instructions: 'The Twitter user name that should be included with Twitter Card tags.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+  sitemap:
+    display: Sitemap
+    sections:
+      -
+        fields:
+          -
+            handle: section_sitemap
+            field:
+              type: section
+              display: Sitemap
+              icon: section
+              instructions: 'Configure the sitemap.xml'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: sitemap_collections
+            field:
+              mode: select
+              type: collections
+              display: Collections
+              icon: collections
+              instructions: 'Select which collections to include in the sitemap.xml.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+  trackers:
+    display: Trackers
+    sections:
+      -
+        fields:
+          -
+            handle: site_verifications
+            field:
+              type: section
+              display: 'Site verifications'
+              icon: section
+              instructions: 'Configure site verifications.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: use_google_site_verification
+            field:
+              default: false
+              type: toggle
+              display: 'Google site verification'
+              icon: toggle
+              instructions: 'Add a google-site-verification meta tag to your head.'
+              listable: false
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: google_site_verification
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Verification key'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              validate:
+                - 'required_if:use_google_site_verification,true'
+              if:
+                use_google_site_verification: 'equals true'
+          -
+            handle: section_privacy_trackers
+            field:
+              type: section
+              display: 'Privacy Friendly Trackers'
+              icon: section
+              instructions: "Configure privacty friendly trackers that don't require a cookie notification."
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: use_fathom
+            field:
+              default: false
+              type: toggle
+              display: Fathom
+              icon: toggle
+              instructions: 'Add Fathom tracking code to your head.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: fathom
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Site ID'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              validate:
+                - 'required_if:use_fathom,true'
+              if:
+                use_fathom: 'equals true'
+          -
+            handle: use_cloudflare_web_analytics
+            field:
+              default: false
+              type: toggle
+              display: 'Cloudflare Web Analytics'
+              icon: toggle
+              instructions: 'Add Cloudflare tracking code to your head.'
+              listable: false
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: cloudflare_web_analytics
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Beacon ID'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              validate:
+                - 'required_if:use_cloudflare_web_analytics,true'
+              if:
+                use_cloudflare_web_analytics: 'equals true'
+          -
+            handle: section_google_trackers
+            field:
+              type: section
+              display: 'Google Trackers'
+              icon: section
+              instructions: 'Configure Google trackers and an optional cookie notification.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: tracker_type
+            field:
+              options:
+                none: None
+                gtag: 'Google Analytics'
+                gtm: 'Google Tag Manager'
+              default: none
+              type: button_group
+              display: 'Google Tracker type'
+              icon: button_group
+              instructions: 'The type of Google Tracker you want added on each page.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: google_analytics
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Tracking ID'
+              icon: text
+              instructions: "The Analytics tracking ID. *Note: if you don't anonymize IP's you need cookie consent in the EU. You should then use Google Tag Manager to load the Analytics tracking scripts and enable the Cookie Banner.*"
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              validate:
+                - 'required_if:tracker_type,gtag'
+              if:
+                tracker_type: 'equals gtag'
+          -
+            handle: anonymize_ips
+            field:
+              default: false
+              type: toggle
+              display: "Anonymize IP's"
+              icon: toggle
+              instructions: 'Enable this to be excempt from needing cookie consent.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtag'
+          -
+            handle: google_tag_manager
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Tracking ID'
+              icon: text
+              instructions: 'The GTM tracking ID.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              validate:
+                - 'required_if:tracker_type,gtm'
+              if:
+                tracker_type: 'equals gtm'
+          -
+            handle: use_cookie_banner
+            field:
+              default: false
+              type: toggle
+              display: 'Cookie banner'
+              icon: toggle
+              instructions: 'Enable the cookie banner. Make sure you load all tracking scripts via GTM and set GTM to only function when the cookie `cookie_consent` is set to `true`.'
+              width: 50
+              listable: false
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+          -
+            handle: cookie_expiration_days
+            field:
+              input_type: number
+              default: '365'
+              prepend: After
+              append: days
+              antlers: false
+              type: text
+              display: 'Expire cookie consent'
+              icon: text
+              instructions: 'After how many days the cookie consent cookie should expire and users need to consent again.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+                use_cookie_banner: 'equals true'
+          -
+            handle: cookie_revoke_before
+            field:
+              mode: single
+              inline: false
+              full_width: false
+              columns: 1
+              rows: 1
+              time_enabled: false
+              time_seconds_enabled: false
+              earliest_date: '1900-01-25'
+              type: date
+              display: 'Revoke consent before'
+              icon: date
+              instructions: 'Revoke all users consent before this date. Use this when you added new trackers to GTM and your privacy policy changed. The cookie bar will reappear.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+                use_cookie_banner: 'equals true'
+          -
+            handle: link_privacy_statement
+            field:
+              options:
+                none: None
+                entry: Entry
+                pdf: PDF
+              default: none
+              type: button_group
+              display: 'Link to more information'
+              icon: button_group
+              instructions: 'Link to a privacy statement or cookie policy from the cookie notification.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+                use_cookie_banner: 'equals true'
+          -
+            handle: privacy_statement_asset
+            field:
+              max_files: 1
+              mode: list
+              container: assets
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Privacy statement (PDF)'
+              icon: assets
+              instructions: 'The PDF you want to link to.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+                use_cookie_banner: 'equals true'
+                link_privacy_statement: 'equals pdf'
+          -
+            handle: privacy_statement_entry
+            field:
+              max_items: 1
+              mode: default
+              create: true
+              type: entries
+              display: 'Privacy statement (entry)'
+              icon: entries
+              instructions: 'The entry you want to link to.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                tracker_type: 'equals gtm'
+                use_cookie_banner: 'equals true'
+                link_privacy_statement: 'equals entry'

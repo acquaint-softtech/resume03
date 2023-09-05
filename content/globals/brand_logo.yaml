@@ -1,0 +1,6 @@
+title: 'Brand Logo'
+data:
+  dark_logo: dark-logo.png
+  light_logo: logo-light.png
+  button_text: 'Download CV'
+  resume_pdf: sample.pdf

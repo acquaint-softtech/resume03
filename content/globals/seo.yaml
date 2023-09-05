@@ -1,0 +1,18 @@
+title: SEO
+data:
+  title_separator: '-'
+  site_name: 'B Morex'
+  json_ld_type: organization
+  organization_name: 'B morex'
+  organization_logo: logo-light.png
+  breadcrumbs: true
+  use_social_images_generation: false
+  sitemap_collections:
+    - blog
+    - pages
+    - portfolio
+    - services
+  use_google_site_verification: false
+  use_fathom: false
+  use_cloudflare_web_analytics: false
+  tracker_type: none

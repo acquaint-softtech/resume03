@@ -1,0 +1,144 @@
+title: 'Contact Section'
+fields:
+  -
+    handle: contact_slug
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Slug
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: con_heading
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Heading
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: con_title
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: Title
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: con_description
+    field:
+      restrict: false
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      heading_anchors: false
+      smartypants: false
+      table_of_contents: false
+      antlers: false
+      type: markdown
+      display: Description
+      icon: markdown
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: contact_details
+    field:
+      fields:
+        -
+          handle: con_grid_image
+          field:
+            mode: list
+            container: assets
+            restrict: false
+            allow_uploads: true
+            show_filename: true
+            show_set_alt: true
+            type: assets
+            display: Image
+            icon: assets
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+            max_files: 1
+        -
+          handle: con_grid_name
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Name
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: con_grid_description
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: Description
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+        -
+          handle: con_grid_description_1
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Description 1'
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            hide_display: false
+      mode: stacked
+      reorderable: true
+      fullscreen: true
+      type: grid
+      display: 'Contact Details'
+      icon: grid
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: map_address
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Map Address'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false

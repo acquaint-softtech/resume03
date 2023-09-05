@@ -1,0 +1,75 @@
+<section class="lg:py-[100px] py-20" id="{{service_slug | slugify}}">
+  <div class="container mx-auto">
+    <div
+      class="flex justify-between items-center gap-[20px] lg:gap-8 mb-13 flex-wrap lg:flex-nowrap text-center lg:text-start">
+      <div class="max-w-full lg:max-w-[580px] w-full">
+        <span class="text-accent1 text-xl lg:text-2xl font-medium mb-2.5 lg:mb-1.5">{{ser_heading}}</span>
+        <h2
+          class="text:[28px] lg:text-[48px] font-bold font-heebo leading-[36px] lg:leading-[58px] text-[#000248] dark:text-white">
+          {{ser_title}}</h2>
+      </div>
+      <div class="md:grow lg:grow-0">
+        {{ partial:typography/prose as="article" class="text-[#636363] text-17 leading-[28px] lg:max-w-[472px]
+        w-full dark:text-slate-200" }}
+        {{ ser_description }}
+        {{ /partial:typography/prose }}
+      </div>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-3 grid-cols-1 only-md:grid-cols-2" x-data="{ 'Modal': null }"
+      @keydown.escape.window="Modal = false">
+      {{collection:services as="posts" sort="date:desc"}}
+      {{posts}}
+      <div
+        class="popup-modal--open relative shadow-[0_0_50px_0_rgba(196,206,213,0.2)] hover:shadow-[0_0_150px_0_rgba(196,206,213,0.7)] dark:shadow-[0_0_20px_0_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_50px_0_rgba(0,0,0,0.2)] hover:translate-y-[-10px] transition duration-500">
+        <div class="overflow-hidden px-7.5 xl:px-[40px] lg:pt-12.5 pt-10 pb-10 ">
+          <span
+            class="bg-[{{services_background_color}}] text-white w-17 h-17 lg:w-[93px] lg:h-[93px] flex items-center justify-center rounded-full service-shape before:bg-[{{services_background_color}}] before:opacity-[0.26]">
+            {{ partial:components/picture_size :image="services_image" lazy="true"}}
+          </span>
+          <h3 class="text-primary dark:text-white text-xl xl:text-[25px] font-bold font-heebo mt-5 mb-3.9">
+            {{title}}</h3>
+          <p class="text-17 text-[#636363] dark:text-slate-200">{{services_short_description}}</p>
+          <a href="javascript:void(0)" @click="Modal = '{{index}}'"
+            class="link-button text-[{{services_background_color}}] before:bg-[{{services_background_color}}] mt-3.9 hover:text-[#333] dark:hover:text-white">Read
+            More</a>
+        </div>
+      </div>
+      <div class="modal_portfolio fixed h-screen w-full left-0 top-0 z-[999999] opacity-0 invisible active"
+      x-show="Modal === '{{index}}'" x-cloak="">
+      <div class="modal_popup_overlay fixed w-full h-full bg-black left-0 top-0 opacity-[0.3]"></div>
+      <div
+        class="modal__portfolio--content relative z-10 h-full flex items-center px-4 max-w-[750px] xl:max-w-[800px] mx-auto transition duration-300 translate-y-[-50px]">
+        <div
+          class="overflow-y-auto modal__portfolio--content-inner bg-white dark:bg-gray-800  max-h-[60vh] lg:max-h-[80vh] p-8 rounded-2xl relative"   @click.away="Modal = false">
+          <button
+            class="modal__popup--close ltr:right-[5px] rtl:left-[5px] top-[5px] absolute w-[50px] h-[50px] bg-accent1 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:bg-primary dark:hover:bg-[#181a1d]"
+            @click="Modal = false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-x">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div>
+            <div
+              class="pt-3 bg-[{{services_background_color}}] text-white w-17 h-17 lg:w-[93px] lg:h-[93px] flex items-center justify-center rounded-full service-shape before:bg-[{{services_background_color}}] before:opacity-[0.26]">
+              {{ glide src="{{ services_image }}"  }}
+                <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ services_image:alt }}" class="max-w-full h-auto rounded-xl mt-6 mx-auto w-full">
+              {{ /glide }}
+            </div>
+            <h4 class="text-[25px] lg:text-[32px] leading-7 font-heebo font-bold mt-8">
+              <span class="text-primary dark:text-white">{{title}}</span>
+            </h4>
+            <div class="blog__content mt-5 text-17 leading-7 dark:text-slate-300">
+              <p>{{ ser_content }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      {{/posts}}
+      {{/collection:services}}
+    </div>
+  </div>
+</section>

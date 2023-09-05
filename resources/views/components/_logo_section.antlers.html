@@ -1,0 +1,33 @@
+<section class="py-20 lg:py-[100px] ">
+  <div class="container mx-auto">
+    <div class="relative">
+      <div class="w-full absolute h-[2px] md:bg-[#DDDDDD] md:top-1/2 md:translate-y-[-50%] ltr:left-0 rtl:right-0 bottom-[-1px] bg-white dark:bg-dark_primary_bg dark:md:bg-[#DDDDDD] md:bottom-1/2"></div>
+      <div class="absolute w-[2px] h-full bg-white dark:bg-dark_primary_bg top-0 ltr:right-0 rtl:left-0 32xs:hidden"></div>
+      <div class="flex flex-wrap divide-[#DDDDDD] dark:divide-[#181a1d]">
+        
+        {{ glide src="{{ light_image }}"  }}  
+        <div
+          class="max-w-[25%] 2xs:max-w-[50%] w-full client__logo--padding border-r last:border-r-0 border-b md:border-b-0 last:border-b-0"
+          x-show="!darkMode">
+          <div
+            class="w-full client__logo--padding--inner">
+            <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ light_image:alt }}" class="mx-auto opacity-[0.7] 
+            hover:opacity-[1] transition duration-300 dark:hidden">
+          </div>
+        </div>
+        {{/glide}}
+      
+        {{ glide src="{{ dark_image }}"  }}
+        <div
+          class="max-w-[25%] 2xs:max-w-[50%] w-full client__logo--padding border-r last:border-r-0 border-b md:border-b-0 last:border-b-0"
+          x-show="darkMode">
+          <div
+            class="w-full client__logo--padding--inner">
+              <img src="{{ url }}" width="{{ width }}" height="{{ height }}" alt="{{ dark_image:alt }}" class="mx-auto grayscale hover:grayscale-0 transition duration-300 dark:block hidden">
+          </div>
+        </div>
+        {{ /glide }}
+      </div>
+    </div>
+  </div>
+</section>

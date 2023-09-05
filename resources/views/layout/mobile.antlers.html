@@ -1,0 +1,37 @@
+<div class="offcanvas__header lg:hidden dark:bg-gray-800">
+    <div class="offcanvas__inner">
+        <div class="offcanvas__logo">
+            <a class="offcanvas__logo_link" href="/">
+                <img src="{{ glide:brand_logo:light_logo  }}" alt="{{ brand_logo:light_logo:alt }}" class="hidden dark:block">
+                <img src="{{ glide:brand_logo:dark_logo  }}" alt="{{ brand_logo:dark_logo:alt }}" class="dark:hidden">
+            </a>
+            <button class="offcanvas__close--btn dark:text-white" data-offcanvas>close</button>
+        </div>
+        <nav class="offcanvas__menu">
+            <ul class="offcanvas__menu_ul">
+                {{nav:main}}
+                <li class="offcanvas__menu_li">
+                    <a class="offcanvas__menu_item dark:text-white" href="#{{title | slugify}}">{{title}}</a>
+                </li>
+                {{/nav:main}}
+            </ul>
+            <a href="{{brand_logo:resume_pdf}}" download>
+            <button
+                class="flex mx-auto bg-accent1 lg:px-4 px-3 xl:py-[12px] py-2.5 rounded-[2rem] text-base xl:text-lg font-medium text-white items-center transition duration-300 relative after:absolute :after:content-[''] after:bg-primary after:h-full after:w-full after:bottom-0 after:left-0 after:rounded-[2rem] after:trasition after:duration-300 after:opacity-0 hover:after:opacity-[1] mt-7.5">
+                <span
+                    class="icon bg-[#EFEBEB] text-accent1 w-[34px] h-[34px] rounded-full flex items-center justify-center ltr:xl:mr-3.9 ltr:mr-[10px] rtl:xl:ml-3.9 rtl:ml-[10px] relative z-8 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-download">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </span>
+                <span
+                    class="ltr:xl:pr-[5px] ltr:lg:pr-[5px] rtl:xl:pl-[5px] rtl:lg:pl-[5px] relative z-8 flex-shrink-0">{{brand_logo:button_text}}</span>
+            </button>
+        </a>
+        </nav>
+    </div>
+</div>
