@@ -69,3 +69,11 @@ npm run build
 ```
 
 Read the docs on the [Documentation](DOCUMENTATION.md)
+
+## Bugs 🐛 Issues 🚧 Feature Request 💡
+
+If you find a bug, are stuck, or need help, do not hesitate to contact Acquaint Softtech for [support](https://github.com/acquaint-softtech/resume03/issues).  In the case where you have additional development requirements or need to add a new feature, you can [hire Statamic developers](https://acquaintsoft.com/statamic-cms-development-company).
+
+## Credits
+
+This innovative Resume Starter Kit results from the creativity of the highly experienced Statamic developers at [Acquaint Softtech](https://acquaintsoft.com). As an [official Laravel Partner]( https://acquaintsoft.com/services/laravel-development-service), we have a highly experienced team working on innovative Statamic projects. Get in touch with us for your next Statamic or Laravel project.
